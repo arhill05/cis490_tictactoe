@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getName();
@@ -18,12 +23,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Toast toast;
     String currentPlayer = TicTac.playerX;
     String winner;
-    TextView topContent, bottomContent;
+    TextView topContent;
+    TextView[] textViews = new TextView[9];
+
 
 
     static class TicTac {
-        static String playerX = "Player X";
-        static String playerO = "Player O";
+        static String playerX = "X";
+        static String playerO = "O";
         static String draw = "Draw!";
 
         static Integer markerX = 0;
@@ -36,25 +43,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         TextView btn0 = (TextView)findViewById(R.id.btn0);
         btn0.setOnClickListener(this);
+      textViews[0] = btn0;
         TextView btn1 = (TextView)findViewById(R.id.btn1);
         btn1.setOnClickListener(this);
+      textViews[1] = btn1;
         TextView btn2 = (TextView)findViewById(R.id.btn2);
         btn2.setOnClickListener(this);
+      textViews[2] = btn2;
         TextView btn3 = (TextView)findViewById(R.id.btn3);
         btn3.setOnClickListener(this);
+      textViews[3] = btn3;
         TextView btn4 = (TextView)findViewById(R.id.btn4);
         btn4.setOnClickListener(this);
+      textViews[4] = btn4;
         TextView btn5 = (TextView)findViewById(R.id.btn5);
         btn5.setOnClickListener(this);
+      textViews[5] = btn5;
         TextView btn6 = (TextView)findViewById(R.id.btn6);
         btn6.setOnClickListener(this);
+      textViews[6] = btn6;
         TextView btn7 = (TextView)findViewById(R.id.btn7);
         btn7.setOnClickListener(this);
+      textViews[7] = btn7;
         TextView btn8 = (TextView)findViewById(R.id.btn8);
         btn8.setOnClickListener(this);
+      textViews[8] = btn8;
+
 
         topContent = (TextView) findViewById(R.id.topContent);
-        bottomContent = (TextView) findViewById(R.id.bottomContent);
+        Button resetButton = (Button) findViewById(R.id.bottomContent);
+
+      resetButton.setOnClickListener(resetListener);
     }
 
     @Override
@@ -69,31 +88,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (viewText.isEmpty()) {
             markSquare(v, buttonID);
-            squares[buttonID] = currentPlayer;
 
         } else {
             toast = Toast.makeText(this, "You can't place a move here!", Toast.LENGTH_SHORT);
             toast.show();
         }
-
     }
+
+    View.OnClickListener resetListener = new View.OnClickListener(){
+      public void onClick(View v){
+        clearBoard();
+      }
+    };
+
+  public void clearBoard(){
+    for(Integer k = 0; k < squares.length; k++){
+      squares[k] = k.toString();
+      textViews[k].setText("");
+      topContent.setText("It is player X's turn");
+    }
+  }
 
     public void markSquare(View v, Integer buttonID){
         TextView textView = (TextView) v;
-        if(currentPlayer == TicTac.playerX){
-            textView.setText("X");
-            evaluateBoard(buttonID);
-        }
-        else {
-            textView.setText("O");
-            evaluateBoard(buttonID);
-        }
+        textView.setText(currentPlayer);
+        squares[buttonID] = currentPlayer;
+        topContent.setText("It is Player " + currentPlayer + "'s turn.");
+        evaluateBoard(buttonID);
     }
 
     public boolean isDraw(Integer buttonID) {
         boolean isDraw = true;
-        for(int i = 0; i < squares.length; i++){
-            if(squares[i] == buttonID.toString()){
+        for(Integer i = 0; i < squares.length; i++){
+            if(squares[i] == i.toString()){
                 isDraw = false;
                 break;
             }
@@ -103,7 +130,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void evaluateBoard(Integer buttonID) {
         if(isWinner(buttonID)){
-            topContent.setText(currentPlayer + " has won!");
+            topContent.setText("Player " + currentPlayer + " has won!");
+            return;
         } else if (isDraw((buttonID))) {
             topContent.setText(TicTac.draw);
         }
@@ -111,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(currentPlayer == TicTac.playerO){
                 currentPlayer = TicTac.playerX;
             }
-            else{
+            else if(currentPlayer == TicTac.playerX){
                 currentPlayer = TicTac.playerO;
             }
         }

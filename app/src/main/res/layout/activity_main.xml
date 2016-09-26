@@ -16,34 +16,45 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Top container"
+            android:text="It is Player X's turn"
+            android:textSize="24dp"
+            android:gravity="center_horizontal"
+          android:layout_weight="1"
             android:id="@+id/topContent"/>
     </LinearLayout>
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alignmentMode="alignMargins"
-        android:columnCount="3"
-        android:rowCount="3">
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn0" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn1" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn2" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn3" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn4" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn5" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn6" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn7" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-        <TextView android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn8" android:gravity="center" android:minWidth="120dp" android:layout_marginTop="8dp" android:minHeight="120dp" android:layout_columnWeight="1" android:layout_rowWeight="1"/>
-    </GridLayout>
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn0" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:minHeight="80dp" />
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn1" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:minHeight="80dp" />
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn2" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:minHeight="80dp" />
+</LinearLayout>
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn3" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn4" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+        <TextView android:layout_margin="8dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn5" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+        <TextView android:layout_margin="8dp" android:text="" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn6" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+        <TextView android:layout_margin="8dp" android:text="" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn7" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+        <TextView android:layout_margin="8dp" android:text="" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="72dp" android:background="@color/colorBackground" android:id="@+id/btn8" android:gravity="center" android:minWidth="80dp" android:layout_weight="1" android:layout_marginTop="8dp" android:minHeight="80dp"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bottom Container"
+            android:text="Reset"
             android:id="@+id/bottomContent"/>
     </LinearLayout>
 </LinearLayout>
