@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void evaluateBoard(Integer buttonID) {
         if(isWinner(buttonID)){
             topContent.setText("Player " + currentPlayer + " has won!");
-            return;
+          return;
         } else if (isDraw((buttonID))) {
             topContent.setText(TicTac.draw);
         }
